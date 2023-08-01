@@ -1,0 +1,29 @@
+on:
+  push:
+    branches:
+      - 'main'
+    tags:
+      - '*'
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 17 * * 1'  # 9AM PST/10AM PDT Monday
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - macos-latest
+        scheme:
+          - Sado
+          - SadoBinary
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Build Sado
+        uses: mxcl/xcodebuild@v1
+        with:
+          action: build
+          scheme: ${{ matrix.scheme }}
