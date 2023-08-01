@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		302919D52A798E020004C1A3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 302919D42A798E020004C1A3 /* Info.plist */; };
 		30E19A2C2A69E7D9007658F0 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 30E19A2B2A69E7D9007658F0 /* ArgumentParser */; };
 		30E19A4B2A69E880007658F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30E19A4A2A69E880007658F0 /* Assets.xcassets */; };
 		30E19A4E2A69E880007658F0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30E19A4D2A69E880007658F0 /* Preview Assets.xcassets */; };
@@ -32,6 +33,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		302919D42A798E020004C1A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		30E19A0B2A69E434007658F0 /* SadoBinary */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SadoBinary; sourceTree = BUILT_PRODUCTS_DIR; };
 		30E19A242A69E58C007658F0 /* Sado.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sado.swift; sourceTree = "<group>"; };
 		30E19A252A69E58C007658F0 /* Permissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permissions.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		30E19A452A69E87E007658F0 /* Sado */ = {
 			isa = PBXGroup;
 			children = (
+				302919D42A798E020004C1A3 /* Info.plist */,
 				30E19A252A69E58C007658F0 /* Permissions.swift */,
 				30E19A242A69E58C007658F0 /* Sado.swift */,
 				30E19A262A69E58C007658F0 /* Util.swift */,
@@ -199,6 +202,7 @@
 			files = (
 				30E19A4E2A69E880007658F0 /* Preview Assets.xcassets in Resources */,
 				30E19A4B2A69E880007658F0 /* Assets.xcassets in Resources */,
+				302919D52A798E020004C1A3 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +424,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -493,6 +498,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
