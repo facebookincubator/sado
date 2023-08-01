@@ -6,7 +6,7 @@ typealias CommandList = [String: [String]]
 
 /// Returns the list of allowed commands, or nil if none exist.
 func getCommandList() -> CommandList? {
-  if let obj = UserDefaults().object(forKey: "ValidCommands") {
+  if let obj = UserDefaults(suiteName: "com.facebook.cpe.Sado")?.object(forKey: "ValidCommands") {
     if let list = obj as? CommandList {
       return list
     }
