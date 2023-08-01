@@ -14,22 +14,31 @@
  * limitations under the License.
  */
 
+// @lint-ignore-every SWIFTLINT
+
 import Foundation
 
 typealias CommandList = [String: [String]]
 
 /// Returns the list of allowed commands, or nil if none exist.
 func getCommandList() -> CommandList? {
-  if let obj = UserDefaults(suiteName: "com.facebook.cpe.Sado")?.object(forKey: "ValidCommands") {
-    if let list = obj as? CommandList {
-      return list
-    }
-    // we try to log the object as an NSObject but if we can't we give up
-    if let nsObject = obj as? NSObject {
-      sadoLogger().error("Unable to cast `\(nsObject, privacy: .public)` to CommandList")
-    }
+  let userDefaults = if Bundle.main.bundleIdentifier == nil {
+    UserDefaults(suiteName: "com.facebook.cpe.Sado")
   } else {
+    UserDefaults()
+  }
+
+  guard let obj = userDefaults?.object(forKey: "ValidCommands") else {
     sadoLogger().warning("Unable to find UserDefaults key for `ValidCommands`")
+    return nil
+  }
+
+  if let list = obj as? CommandList {
+    return list
+  }
+  // we try to log the object as an NSObject but if we can't we give up
+  if let nsObject = obj as? NSObject {
+    sadoLogger().error("Unable to cast `\(nsObject, privacy: .public)` to CommandList")
   }
   return nil
 }
