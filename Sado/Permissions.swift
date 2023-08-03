@@ -14,19 +14,17 @@
  * limitations under the License.
  */
 
-// @lint-ignore-every SWIFTLINT
-
 import Foundation
+import os
 
 typealias CommandList = [String: [String]]
 
 /// Returns the list of allowed commands, or nil if none exist.
 func getCommandList() -> CommandList? {
-  let userDefaults = if Bundle.main.bundleIdentifier == nil {
-    UserDefaults(suiteName: "com.facebook.cpe.Sado")
-  } else {
-    UserDefaults()
-  }
+  let userDefaults =
+    Bundle.main.bundleIdentifier == nil
+    ? UserDefaults(suiteName: "com.facebook.cpe.Sado")
+    : UserDefaults()
 
   guard let obj = userDefaults?.object(forKey: "ValidCommands") else {
     sadoLogger().warning("Unable to find UserDefaults key for `ValidCommands`")
