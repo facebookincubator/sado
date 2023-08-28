@@ -37,6 +37,27 @@ $ $sado run /bin/echo "I'm a bad command!"
 I'm a bad command!
 ```
 
+## Managing Sado via MDM
+Sado uses the bundle identifier to look up the configuration, which defaults to com.facebook.cpe.Sado. You con enforce values for this with a configuration profile with the PayloadType that matches the bundle identifier (com.facebook.cpe.Sado).
+```xml
+  <key>PayloadContent</key>
+  <dict>
+    <key>ValidCommands</key>
+    <dict>
+      <key>run_true</key>
+      <array>
+        <string>/usr/bin/true</string>
+      </array>
+      <key>run_echo</key>
+      <array>
+        <string>/bin/echo</string>
+        <string>hello</string>
+        <string>there!</string>
+      </array>
+    </dict>
+  </dict>
+```
+
 ## Requirements
 Sado requires macOS 11.0 or later.
 
