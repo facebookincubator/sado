@@ -44,9 +44,9 @@ func getCommandList() -> CommandList? {
 /// Sets the list of allowed commands.
 func setCommandList(_ commandList: CommandList) {
   guard let userDefaults =
-    Bundle.main.bundleIdentifier == nil
-    ? UserDefaults(suiteName: "com.facebook.cpe.Sado")
-    : UserDefaults() else {
+          Bundle.main.bundleIdentifier == nil
+          ? UserDefaults(suiteName: "com.facebook.cpe.Sado")
+          : UserDefaults() else {
     sadoLogger().warning("Unable to initialize UserDefaults to set it")
     return
   }
