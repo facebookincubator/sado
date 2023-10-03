@@ -96,7 +96,7 @@ struct Sado: ParsableCommand {
       abstract: "Run the given executable under our context.")
     @Flag var claim = false
     @Argument var executable: String
-    @Argument(parsing: .unconditionalRemaining)
+    @Argument(parsing: .captureForPassthrough)
     var args: [String] = []
     func logArgs() {
       sadoLogger().log("executable: \(executable, privacy: .public), args: \(args, privacy: .public)")
@@ -152,8 +152,7 @@ struct Sado: ParsableCommand {
       abstract: "Run the following commands after disclaiming responsibility.")
 
     @Argument var executable: String
-    @Argument(parsing: .unconditionalRemaining)
-
+    @Argument(parsing: .captureForPassthrough)
     var args: [String] = []
     func logArgs() {
       sadoLogger().log("disclaim: \(executable, privacy: .public), args: \(args, privacy: .public)")
@@ -192,7 +191,7 @@ struct Sado: ParsableCommand {
       abstract: "Add to the list of commands.")
 
     @Argument var name: String
-    @Argument(parsing: .unconditionalRemaining)
+    @Argument(parsing: .captureForPassthrough)
     var command: [String]
     mutating func run() throws {
       var commandList: CommandList = getCommandList() ?? [:]
