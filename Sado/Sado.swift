@@ -71,6 +71,7 @@ struct Sado: ParsableCommand {
   // Adding more flags will complicate the run() function, where disclaim is implemented
   static var configuration = CommandConfiguration(
     abstract: "A signed app wrapper.",
+    version: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0.0",
     subcommands: [Run.self, RunByName.self, Disclaim.self, ListCommands.self, AddCommand.self, ClearCommands.self],
     defaultSubcommand: RunByName.self)
 
