@@ -20,8 +20,7 @@ import os
 extension Bundle {
   /// The localized name of the app bundle.
   var displayName: String? {
-    return object(forInfoDictionaryKey: "CFBundleDisplayam") as? String ??
-      object(forInfoDictionaryKey: "CFBundleName") as? String
+    return object(forInfoDictionaryKey: "CFBundleDisplayam") as? String ?? object(forInfoDictionaryKey: "CFBundleName") as? String
   }
 }
 

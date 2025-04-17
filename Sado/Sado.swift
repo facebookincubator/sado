@@ -52,7 +52,7 @@ private func runDisclaimed(executable: String, args: [String]) throws {
     if setDisclaim == nil {
       throw NSError(domain: "Failure finding setdisclaim symbol", code: Int(errno))
     }
-    typealias SetDisclaimType = @convention(c) (UnsafeMutablePointer<Optional<posix_spawnattr_t> >, Int32) -> Int32
+    typealias SetDisclaimType = @convention(c) (UnsafeMutablePointer<Optional<posix_spawnattr_t>>, Int32) -> Int32
     // We cast the `setDisclaim` pointer to the type the function should be, and then call it.
     // We can't just refer to this using the C symbol, as it may not be available at compile time.
     // In particular, it is an undocumented API and no headers exist for it at this time.
@@ -87,7 +87,7 @@ struct Sado: ParsableCommand {
       claimedArgs.remove(at: index)
     }
 
-    try runDisclaimed(executable: execPath, args: claimedArgs )
+    try runDisclaimed(executable: execPath, args: claimedArgs)
 
     throw ValidationError("Unable to spawn self to claim responsibiliy")
   }
@@ -133,7 +133,7 @@ struct Sado: ParsableCommand {
       if claim {
         try claimSelf()
       }
-      let name = name // `name` does not need to be mutable, necessary for logging
+      let name = name  // `name` does not need to be mutable, necessary for logging
       guard let command = getCommandList()?[name] else {
         sadoLogger().error("Was asked to run the `\(name, privacy: .public)` command but it does not exist")
         print("`\(name)` command does not exist", to: &standardError)
@@ -168,7 +168,7 @@ struct Sado: ParsableCommand {
       // do NOT perform permissions checking here. This is not granting anything our privileges,
       // and so we care less. And managing an allow-list would prevent this from being used for
       // testing, which is the purpose.
-      try runDisclaimed(executable: executable, args: [ executable ] + args )
+      try runDisclaimed(executable: executable, args: [executable] + args)
     }
   }
 
