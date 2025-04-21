@@ -133,7 +133,7 @@ struct Sado: ParsableCommand {
       if claim {
         try claimSelf()
       }
-      let name = name  // `name` does not need to be mutable, necessary for logging
+      let name = name // `name` does not need to be mutable, necessary for logging
       guard let command = getCommandList()?[name] else {
         sadoLogger().error("Was asked to run the `\(name, privacy: .public)` command but it does not exist")
         print("`\(name)` command does not exist", to: &standardError)
