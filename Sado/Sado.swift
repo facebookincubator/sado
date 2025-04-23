@@ -16,8 +16,8 @@
 
 import ArgumentParser
 import Foundation
-import System
 import os
+import System
 
 // Disable some lint checks that don't apply to a CLI
 // @patternlint-disable avoid-print-to-prevent-production-overhead
