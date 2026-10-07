@@ -52,7 +52,7 @@ private func runDisclaimed(executable: String, args: [String]) throws {
     if setDisclaim == nil {
       throw NSError(domain: "Failure finding setdisclaim symbol", code: Int(errno))
     }
-    typealias SetDisclaimType = @convention(c) (UnsafeMutablePointer<Optional<posix_spawnattr_t>>, Int32) -> Int32
+    typealias SetDisclaimType = @convention(c) (UnsafeMutablePointer<posix_spawnattr_t?>, Int32) -> Int32
     // We cast the `setDisclaim` pointer to the type the function should be, and then call it.
     // We can't just refer to this using the C symbol, as it may not be available at compile time.
     // In particular, it is an undocumented API and no headers exist for it at this time.
